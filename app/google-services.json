@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1046110455820",
+    "project_id": "impress-dcfe2",
+    "storage_bucket": "impress-dcfe2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1046110455820:android:d65bce84571bf7ac964629",
+        "android_client_info": {
+          "package_name": "com.mad.impress"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1046110455820-peigvu81pe9hpsg9r42r8uq1h0k34lfn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaIxLEtOTSjlk1l-kbgwMl2jFp0M7jOdg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1046110455820-peigvu81pe9hpsg9r42r8uq1h0k34lfn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
