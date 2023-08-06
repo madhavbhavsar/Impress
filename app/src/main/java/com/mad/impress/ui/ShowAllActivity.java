@@ -34,7 +34,7 @@ public class ShowAllActivity extends AppCompatActivity {
         manager1.setStackFromEnd(true);
         rv.setLayoutManager(manager1);
 
-        Query query = FirebaseFirestore.getInstance().collection("CustomerMaster").orderBy("time");
+        Query query = FirebaseFirestore.getInstance().collection("Customer").orderBy("time");
         FirestoreRecyclerOptions<Customer> options1 = new FirestoreRecyclerOptions.Builder<Customer>().setQuery(query, Customer.class).build();
 
         adapter = new CustomerAdapter(options1, ShowAllActivity.this);

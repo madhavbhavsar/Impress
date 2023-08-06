@@ -39,7 +39,7 @@ public class ListCustomerActivity extends AppCompatActivity {
     LinearLayoutManager manager1;
 
     // EditText searchcus,
-    EditText searchmob;
+    EditText searchmob,searchid;
 
     List<String> list_customerNames;
     ArrayAdapter arrayAdapter;
@@ -53,10 +53,31 @@ public class ListCustomerActivity extends AppCompatActivity {
 
 
         searchcus = findViewById(R.id.searchcus);
+        searchid = findViewById(R.id.searchid);
+        searchmob = findViewById(R.id.searchmob);
+        rv = findViewById(R.id.rv);
+
+
+
+        manager1 = new LinearLayoutManager(this);
+        manager1.setReverseLayout(true);
+        manager1.setStackFromEnd(true);
+        rv.setLayoutManager(manager1);
+
+        Query query = FirebaseFirestore.getInstance().collection("Customer");
+        FirestoreRecyclerOptions<Customer> options1 = new FirestoreRecyclerOptions.Builder<Customer>().setQuery(query, Customer.class).build();
+
+        adapter = new CustomerAdapter(options1, ListCustomerActivity.this);
+        adapter.notifyDataSetChanged();
+
+        adapter.startListening();
+        rv.setAdapter(adapter);
+
+
         list_customerNames = new ArrayList<>();
 
 
-        FirebaseFirestore.getInstance().collection("CustomerMaster").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+        FirebaseFirestore.getInstance().collection("Customer").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
             @Override
             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                 if (task.isSuccessful()) {
@@ -77,25 +98,6 @@ public class ListCustomerActivity extends AppCompatActivity {
         });
 
 
-        searchcus = findViewById(R.id.searchcus);
-        searchmob = findViewById(R.id.searchmob);
-        rv = findViewById(R.id.rv);
-
-        manager1 = new LinearLayoutManager(this);
-        manager1.setReverseLayout(true);
-        manager1.setStackFromEnd(true);
-        rv.setLayoutManager(manager1);
-
-        Query query = FirebaseFirestore.getInstance().collection("CustomerMaster");
-        FirestoreRecyclerOptions<Customer> options1 = new FirestoreRecyclerOptions.Builder<Customer>().setQuery(query, Customer.class).build();
-
-        adapter = new CustomerAdapter(options1, ListCustomerActivity.this);
-        adapter.notifyDataSetChanged();
-
-        adapter.startListening();
-        rv.setAdapter(adapter);
-
-
         searchcus.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -105,14 +107,18 @@ public class ListCustomerActivity extends AppCompatActivity {
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
 
+
                 if (!searchcus.getText().toString().trim().isEmpty()) {
 
-                    Query query = FirebaseFirestore.getInstance().collection("CustomerMaster").whereEqualTo("customerName", searchcus.getText().toString().trim());
+                    Query query = FirebaseFirestore.getInstance().collection("Customer").whereEqualTo("customerName", searchcus.getText().toString().trim());
                     FirestoreRecyclerOptions<Customer> options1 = new FirestoreRecyclerOptions.Builder<Customer>().setQuery(query, Customer.class).build();
 
                     adapter = new CustomerAdapter(options1, ListCustomerActivity.this);
                     adapter.notifyDataSetChanged();
-
+                    manager1 = new LinearLayoutManager(ListCustomerActivity.this);
+                    manager1.setReverseLayout(true);
+                    manager1.setStackFromEnd(true);
+                    rv.setLayoutManager(manager1);
                     adapter.startListening();
                     rv.setAdapter(adapter);
                 }
@@ -136,12 +142,48 @@ public class ListCustomerActivity extends AppCompatActivity {
                 if (!searchmob.getText().toString().trim().isEmpty()) {
 
 
-                    Query query = FirebaseFirestore.getInstance().collection("CustomerMaster").whereArrayContains("mobiles", searchmob.getText().toString().trim());
+                    Query query = FirebaseFirestore.getInstance().collection("Customer").whereArrayContains("mobiles", searchmob.getText().toString().trim());
                     FirestoreRecyclerOptions<Customer> options1 = new FirestoreRecyclerOptions.Builder<Customer>().setQuery(query, Customer.class).build();
 
                     adapter = new CustomerAdapter(options1, ListCustomerActivity.this);
                     adapter.notifyDataSetChanged();
+                    manager1 = new LinearLayoutManager(ListCustomerActivity.this);
+                    manager1.setReverseLayout(true);
+                    manager1.setStackFromEnd(true);
+                    rv.setLayoutManager(manager1);
+                    adapter.startListening();
+                    rv.setAdapter(adapter);
+                }
+            }
 
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
+
+
+        searchid.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+
+                if (!searchid.getText().toString().trim().isEmpty()) {
+
+                    Query query = FirebaseFirestore.getInstance().collection("Customer").whereEqualTo("id",searchid.getText().toString().trim());
+                    FirestoreRecyclerOptions<Customer> options1 = new FirestoreRecyclerOptions.Builder<Customer>().setQuery(query, Customer.class).build();
+
+                    adapter = new CustomerAdapter(options1, ListCustomerActivity.this);
+                    adapter.notifyDataSetChanged();
+                    manager1 = new LinearLayoutManager(ListCustomerActivity.this);
+                    manager1.setReverseLayout(false);
+                    manager1.setStackFromEnd(false);
+                    rv.setLayoutManager(manager1);
                     adapter.startListening();
                     rv.setAdapter(adapter);
                 }

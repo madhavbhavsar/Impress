@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".MainActivity">
 
     <TextView
@@ -13,19 +13,18 @@
         android:layout_marginStart="20sp"
         android:layout_marginTop="40sp"
         android:layout_marginEnd="20sp"
-        android:text="Welcome To"/>
+        android:text="Welcome To" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Impress"
-        android:fontFamily="@font/stop"
         android:layout_marginStart="20sp"
         android:layout_marginEnd="20sp"
-        android:textSize="70sp"
+        android:fontFamily="@font/stop"
+        android:text="Impress"
         android:textColor="#000000"
-        android:textStyle="bold"
-        />
+        android:textSize="70sp"
+        android:textStyle="bold" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/newCustomer"
@@ -35,17 +34,16 @@
         android:layout_marginStart="20sp"
         android:layout_marginTop="40sp"
         android:layout_marginEnd="20sp"
-        android:textSize="20sp"
         android:background="@drawable/round_black_primary15"
         android:text="   New Customer   "
         android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/searchCustomer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:layout_gravity="left"
         android:layout_marginStart="20sp"
         android:layout_marginTop="15sp"
@@ -53,14 +51,14 @@
         android:background="@drawable/round_black_primary15"
         android:text="     Search Customer     "
         android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
 
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/showAll"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
         android:layout_gravity="left"
         android:layout_marginStart="20sp"
         android:layout_marginTop="15sp"
@@ -68,6 +66,31 @@
         android:background="@drawable/round_black_primary15"
         android:text="     Show All     "
         android:textAllCaps="false"
-        android:textColor="#FFFFFF" />
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ggbtn"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="left"
+        android:layout_marginStart="20sp"
+        android:layout_marginTop="15sp"
+        android:layout_marginEnd="20sp"
+        android:enabled="false"
+        android:background="@drawable/round_black_primary15"
+        android:text="     Hide     "
+        android:textAllCaps="false"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp" />
+    <com.google.android.material.textview.MaterialTextView
+        android:id="@+id/txtss"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="bottom|center"
+        android:gravity="bottom"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/black"
+        android:text="Developed by SOFT-SCAN" />
 
 </LinearLayout>

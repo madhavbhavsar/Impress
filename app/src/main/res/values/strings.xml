@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Impress</string>
+    <string name="cancel">Cancel</string>
+    <string name="edit">Edit</string>
+    <string name="mobile_2_optional">Mobile 2 (optional)</string>
+    <string name="mobile_1">Mobile 1</string>
+    <string name="customer_name">Customer Name</string>
+    <string name="customer_id">Customer ID</string>
+    <string name="book_name">Book Name</string>
+    <string name="delete">Delete ?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="update">UPDATE</string>
+    <string name="submit">SUBMIT</string>
+    <string name="book_underscore_id">Book (underscore) ID</string>
 </resources>

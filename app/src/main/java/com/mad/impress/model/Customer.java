@@ -4,6 +4,7 @@ import java.util.List;
 
 public class Customer {
 
+    String id = "";
     String bookName;
     String customerId;
     String customerName;
@@ -15,13 +16,22 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(String bookName, String customerId, String customerName, List<String> mobiles, String note) {
+    public Customer(String id, String bookName, String customerId, String customerName, List<String> mobiles, String note) {
+        this.id = id;
         this.bookName = bookName;
         this.customerId = customerId;
         this.customerName = customerName;
 
         this.mobiles = mobiles;
         this.note = note;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
     public List<String> getMobiles() {
